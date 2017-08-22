@@ -1,14 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Your To-Do List
     </ion-title>
+    <ion-buttons end>
+        <button (click)="presentAddTodoModal()" ion-button icon-left color="primary"><ion-icon name="add-circle"></ion-icon> New ToDo</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-item *ngFor="let todo of todos">{{todo.title}}</ion-item>
 </ion-content>
