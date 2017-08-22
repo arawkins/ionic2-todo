@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ModalController, NavParams } from 'ionic-angular';
-import { Subscription } from 'rxjs/Subscription';
+import { ModalController } from 'ionic-angular';
 import { AddTodoModalPage } from '../add-todo-modal/add-todo-modal';
 import { TodoProvider } from '../../providers/todo/todo';
 import { Todo } from '../../providers/todo/todo';
