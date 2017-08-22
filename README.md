@@ -7,7 +7,7 @@ This is a basic ionic 2 todo app.
 Install Ionic and Cordova, if not already installed:
 
 ```bash
-$ sudo npm install -g ionic cordova
+$ npm install -g ionic cordova
 ```
 
 Install dependencies
@@ -20,7 +20,7 @@ Run the project locally
 $ ionic serve
 ```
 
-Run the unittests
+Run tests:
 ```bash
 $ npm test
 ```
