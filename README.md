@@ -20,7 +20,7 @@ Run the project locally
 $ ionic serve
 ```
 
-Run the unittests
+Run tests:
 ```bash
 $ npm test
 ```
