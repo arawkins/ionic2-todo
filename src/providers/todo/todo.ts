@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
+import { Todo } from '../../models/todo/todo';
 
 @Injectable()
 export class TodoProvider {
@@ -24,24 +25,5 @@ export class TodoProvider {
         } else {
             throw new Error("Could not add todo with title " + newTodo.title);
         }
-    }
-}
-
-export class Todo {
-
-    public title:string;
-    public uid:string;
-    public completed:boolean;
-
-    // stored as timestamps
-    public created:number;
-    public due:number;
-
-    constructor(title:string, uid:string) {
-        this.title = title;
-        this.uid = uid;
-        this.completed = false;
-        this.created = Date.now();
-        this.due = null;
     }
 }

@@ -11,7 +11,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddTodoModalPage } from '../pages/add-todo-modal/add-todo-modal';
-import { TodoProvider } from '../providers/todo/todo';
 import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({

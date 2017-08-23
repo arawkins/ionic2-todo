@@ -3,7 +3,7 @@ import { ModalController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AddTodoModalPage } from '../add-todo-modal/add-todo-modal';
 import { AuthProvider } from '../../providers/auth/auth';
-import { Todo } from '../../providers/todo/todo';
+import { Todo } from '../../models/todo/todo';
 
 @Component({
     selector: 'page-home',

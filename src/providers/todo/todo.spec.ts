@@ -1,5 +1,6 @@
 import {} from 'jasmine';
-import { TodoProvider, Todo } from './todo';
+import { TodoProvider } from './todo';
+import { Todo } from '../../models/todo/todo';
 
 let todoProvider = null;
 
