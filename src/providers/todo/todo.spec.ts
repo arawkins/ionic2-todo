@@ -14,13 +14,13 @@ describe('TodoProvider Service', () => {
     });
 
     it('Calling addToDo should add a new ToDo to _data', () => {
-        let newTodo = new Todo('Test');
+        let newTodo = new Todo('Test', 'testUid');
         todoProvider.addTodo(newTodo);
         expect(todoProvider._data.length).toBe(1);
     });
 
     it('The todos subject should notify subscribers when a new todo is added', () => {
-        let newTodo = new Todo('Test');
+        let newTodo = new Todo('Test', 'testUid');
         let testTodos = [];
 
         todoProvider.todos.subscribe(updatedTodos => {

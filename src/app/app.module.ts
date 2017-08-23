@@ -6,11 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddTodoModalPage } from '../pages/add-todo-modal/add-todo-modal';
 import { TodoProvider } from '../providers/todo/todo';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { TodoProvider } from '../providers/todo/todo';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TodoProvider
+    AuthProvider,
+    AngularFireAuth
   ]
 })
 export class AppModule {}
