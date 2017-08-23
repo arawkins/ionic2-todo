@@ -9,8 +9,8 @@ export class TodoProvider {
     private _data: Todo[]
 
     constructor() {
-        this._data = [];
-        this._todos = new BehaviorSubject<Todo[]>([]);
+        this._data = new Array<Todo>();
+        this._todos = new BehaviorSubject<Todo[]>(new Array<Todo>());
     }
 
     public get todos() {

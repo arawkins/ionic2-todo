@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { AddTodoModalPage } from '../add-todo-modal/add-todo-modal';
 import { TodoProvider } from '../../providers/todo/todo';
@@ -14,8 +13,7 @@ export class HomePage implements OnInit {
     private todos:Todo[];
 
     constructor(
-        public navCtrl: NavController,
-        public modalCtrl: ModalController,
+        private modalCtrl: ModalController,
         private todoProvider: TodoProvider
     ) {}
 
