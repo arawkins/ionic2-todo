@@ -11,16 +11,8 @@
 </ion-header>
 
 <ion-content  padding>
-    <div *ngIf="signingIn">
-        <p>Signing in...</p>
-    </div>
-    <div *ngIf="signInError">
-        <p>{{ signInError }}</p>
-    </div>
-    <div *ngIf="!signedIn && !signingIn">
-        <button (click)="signInWithGoogle()" ion-button icon-left color="primary">Sign in with Google</button>
-    </div>
     <div *ngIf="signedIn">
+        <p *ngIf="displayName">Hi, {{ displayName }}.</p>
         <ion-item *ngFor="let todo of todos | async">{{ todo.title }}</ion-item>
     </div>
 </ion-content>

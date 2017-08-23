@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Please Sign In
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  padding>
+
+    <div *ngIf="signingIn">
+        <p>Signing in...</p>
+    </div>
+    <div *ngIf="signInError">
+        <p>{{ signInError }}</p>
+    </div>
+    <div *ngIf="!signedIn && !signingIn">
+        <button (click)="signInWithGoogle()" ion-button icon-left color="primary">Sign in with Google</button>
+    </div>
+</ion-content>

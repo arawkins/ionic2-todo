@@ -62,15 +62,15 @@ export class AuthProvider {
         return this._afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
             .then(result => {
                 this.authenticating = false;
-            }).catch(error => {
-                console.log("Could not authenticate with google", error);
+            }, error => {
                 this.authenticating = false;
                 this.authError = error;
+                throw error;
             });
     }
 
-    signOut(): void {
-        this._afAuth.auth.signOut();
+    signOut(): firebase.Promise<any> {
+        return this._afAuth.auth.signOut();
     }
 
 }

@@ -10,6 +10,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 import { AddTodoModalPage } from '../pages/add-todo-modal/add-todo-modal';
 import { AuthProvider } from '../providers/auth/auth';
 
@@ -17,7 +18,8 @@ import { AuthProvider } from '../providers/auth/auth';
   declarations: [
     MyApp,
     HomePage,
-    AddTodoModalPage
+    AddTodoModalPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { AuthProvider } from '../providers/auth/auth';
   entryComponents: [
     MyApp,
     HomePage,
-    AddTodoModalPage
+    AddTodoModalPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

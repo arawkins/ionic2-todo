@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AddTodoModalPage } from '../add-todo-modal/add-todo-modal';
 import { AuthProvider } from '../../providers/auth/auth';
+import { LoginPage } from '../login/login';
 import { Todo } from '../../models/todo/todo';
 
 @Component({
@@ -15,9 +16,12 @@ export class HomePage {
 
     constructor(
         private _modalCtrl: ModalController,
+        private _navCtrl: NavController,
         private _firebaseDb: AngularFireDatabase,
         private _authProvider: AuthProvider
-    ) {
+    ) {}
+
+    ionViewDidLoad() {
         this.todos = this._firebaseDb.list('/todos');
     }
 
@@ -38,24 +42,14 @@ export class HomePage {
         return this._authProvider.authenticated;
     }
 
-    get signingIn():boolean {
-        return this._authProvider.authenticating;
-    }
-
-    get signInError():Error {
-        return this._authProvider.authError;
-    }
-
     get displayName():string {
         return this._authProvider.displayName;
     }
 
-    signInWithGoogle():void {
-        this._authProvider.signInWithGoogle();
-    }
-
     signOut():void {
-        this._authProvider.signOut();
+        this._authProvider.signOut().then(result => {
+            this._navCtrl.setRoot(LoginPage);
+        });
     }
 
 }
