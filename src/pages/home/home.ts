@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AddTodoModalPage } from '../add-todo-modal/add-todo-modal';
-import { TodoProvider } from '../../providers/todo/todo';
 import { Todo } from '../../providers/todo/todo';
 
 @Component({
@@ -10,17 +10,15 @@ import { Todo } from '../../providers/todo/todo';
 })
 export class HomePage implements OnInit {
 
-    private todos:Todo[];
+    private todos:FirebaseListObservable<Todo[]>;
 
     constructor(
         private modalCtrl: ModalController,
-        private todoProvider: TodoProvider
+        private firebaseDb: AngularFireDatabase
     ) {}
 
     ngOnInit() {
-        this.todoProvider.todos.subscribe(updatedTodos => {
-             this.todos = updatedTodos;
-        });
+        this.todos = this.firebaseDb.list('/todos');
     }
 
     presentAddTodoModal() {
@@ -28,11 +26,11 @@ export class HomePage implements OnInit {
 
         addTodoModal.onDidDismiss(data => {
             if (data != undefined && data != null && typeof data == 'string' && data.length > 0) {
-                // console.log(data);
                 let newTodo = new Todo(data);
-                this.todoProvider.addTodo(newTodo);
+                this.todos.push(newTodo);
             }
         });
+
         addTodoModal.present();
     }
 }

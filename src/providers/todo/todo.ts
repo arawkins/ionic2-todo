@@ -9,8 +9,8 @@ export class TodoProvider {
     private _data: Todo[]
 
     constructor() {
-        this._data = new Array<Todo>();
-        this._todos = new BehaviorSubject<Todo[]>(new Array<Todo>());
+        this._data = [];
+        this._todos = new BehaviorSubject<Todo[]>([]);
     }
 
     public get todos() {
@@ -29,29 +29,9 @@ export class TodoProvider {
 
 export class Todo {
 
-    private static count:number = 1;
-    private _title:string;
-    private _id:number;
+    public title:string;
 
     constructor(title:string) {
-        this.id = Todo.count++;
         this.title = title;
     }
-
-    get id():number {
-        return this._id;
-    }
-
-    set id(newId:number) {
-        this._id = newId;
-    }
-
-    get title():string {
-        return this._title;
-    }
-
-    set title(title:string) {
-        this._title = title;
-    }
-
 }
