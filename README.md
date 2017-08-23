@@ -24,3 +24,22 @@ Run tests:
 ```bash
 $ npm test
 ```
+
+## Firebase
+
+Experimental work on integrating firebase and google login are on the dev branch.
+Currently only working on the web build.
+
+```bash
+$ git checkout dev
+```
+
+npm install again to get AngularFire2 dependency
+```bash
+$ npm install
+```
+
+Then run the project locally
+```bash
+$ ionic serve
+```
