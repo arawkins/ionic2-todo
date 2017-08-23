@@ -10,27 +10,30 @@ import { Todo } from '../../providers/todo/todo';
 })
 export class HomePage implements OnInit {
 
-    private todos:Todo[];
+    private _todos:Todo[];
 
     constructor(
-        private modalCtrl: ModalController,
-        private todoProvider: TodoProvider
+        private _modalCtrl: ModalController,
+        private _todoProvider: TodoProvider
     ) {}
 
     ngOnInit() {
-        this.todoProvider.todos.subscribe(updatedTodos => {
-             this.todos = updatedTodos;
+        this._todoProvider.todos.subscribe(updatedTodos => {
+             this._todos = updatedTodos;
         });
     }
 
+    get todos():Todo[] {
+        return this._todos;
+    }
+
     presentAddTodoModal() {
-        let addTodoModal = this.modalCtrl.create(AddTodoModalPage)
+        let addTodoModal = this._modalCtrl.create(AddTodoModalPage)
 
         addTodoModal.onDidDismiss(data => {
             if (data != undefined && data != null && typeof data == 'string' && data.length > 0) {
-                // console.log(data);
                 let newTodo = new Todo(data);
-                this.todoProvider.addTodo(newTodo);
+                this._todoProvider.addTodo(newTodo);
             }
         });
         addTodoModal.present();

@@ -32,10 +32,12 @@ export class Todo {
     private static count:number = 1;
     private _title:string;
     private _id:number;
+    private _completed:boolean;
 
     constructor(title:string) {
         this.id = Todo.count++;
         this.title = title;
+        this.completed = false;
     }
 
     get id():number {
@@ -52,6 +54,14 @@ export class Todo {
 
     set title(title:string) {
         this._title = title;
+    }
+
+    get completed():boolean {
+        return this._completed;
+    }
+
+    set completed(isCompleted:boolean) {
+        this._completed = isCompleted;
     }
 
 }
